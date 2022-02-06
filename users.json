@@ -1,0 +1,20 @@
+[
+    {
+        "login": "testlogin",
+        "pass": "d25c0f980afb43e5ad331a7019e20ecd",
+        "email": "RuslanShitik@Yandex.by",
+        "userName": "rns"
+    },
+    {
+        "login": "sdff",
+        "pass": "090c20cb11ecb4ddb2c47576cafb8c30",
+        "email": "RuslanShitik@@Yandex.by",
+        "userName": "dsdas"
+    },
+    {
+        "login": "asdadadas",
+        "pass": "918e4d1739d93bf099d1745cd0a19658",
+        "email": "RuslanShitik@Yandex.by",
+        "userName": "sdsds"
+    }
+]
