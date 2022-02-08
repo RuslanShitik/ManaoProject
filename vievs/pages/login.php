@@ -17,7 +17,7 @@ Page::block('head');
     <div class = "container mb-auto mt-5 col-3">
         <div class="border border-dark rounded p-4">
             <h2 class = "mb-3 text-center">Sign-in</h2>
-            <form action="#" method="post" id="form">
+            <form action="#" method="post" id="form" style="display: none">
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Login</label>
                     <input type="text" class="form-control" name="login"  aria-describedby="emailHelp">
@@ -37,5 +37,8 @@ Page::block('head');
     </noscript>
     <script src="../../assets/js/jquery-3.6.0.js"></script>
     <script src="../../assets/js/main.js"></script>
+    <script type="text/javascript">
+        document.getElementById( 'form' ).style.display = 'block';
+    </script>
 </body>
 </html>

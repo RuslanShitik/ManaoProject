@@ -17,7 +17,7 @@ if ($_SESSION["user_login"]){
 <body>
     <div class = "container mb-auto mt-4 col-3">
         <div class="border border-dark rounded p-4">
-            <form action="#" method="post" id="form">
+            <form action="#" method="post" id="form" style="display: none">
                 <div class="mb-3">
                     <label class="form-label">Login</label>
                     <input type="text" name="login" class="form-control" id="Login">
@@ -55,5 +55,8 @@ if ($_SESSION["user_login"]){
     <script src="../../assets/js/jquery-3.6.0.js"></script>
     <script src="../../assets/js/main.js"></script>
 
+    <script type="text/javascript">
+        document.getElementById( 'form' ).style.display = 'block';
+    </script>
 </body>
 </html>

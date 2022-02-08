@@ -1,20 +1,14 @@
 [
     {
         "login": "testlogin",
-        "pass": "d25c0f980afb43e5ad331a7019e20ecd",
+        "pass": "a3378a718608032455542dd23a5d345b",
         "email": "RuslanShitik@Yandex.by",
-        "userName": "rns"
+        "userName": "kaha"
     },
     {
-        "login": "sdff",
-        "pass": "090c20cb11ecb4ddb2c47576cafb8c30",
-        "email": "RuslanShitik@@Yandex.by",
-        "userName": "dsdas"
-    },
-    {
-        "login": "asdadadas",
-        "pass": "918e4d1739d93bf099d1745cd0a19658",
-        "email": "RuslanShitik@Yandex.by",
-        "userName": "sdsds"
+        "login": "testlogin1",
+        "pass": "a3378a718608032455542dd23a5d345b",
+        "email": "RuslasShitik@Yandex.by",
+        "userName": "test"
     }
 ]

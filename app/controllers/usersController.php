@@ -8,25 +8,30 @@ class usersController
 {
     private $dbAdr = "../../users.json";
 
-    public function create($newUserData)
+    private function checkLogin($newUserData)
     {
-        //проверка на существование пользователя
-
-        $isUserExists = false;
         $data = file_get_contents('users.json');
+
         // в массив
         $data = json_decode($data);
         $data = json_decode(json_encode($data), true);
+
         if(!empty($data)){
             foreach($data as $row){
-                if(($row["login"] == $newUserData['login']) && ($row["email"] == $newUserData['email'])){
-                    $isUserExists = true;
+                if(($row["login"] == $newUserData['login']) or ($row["email"] == $newUserData['email'])){
+                    return true;
                     break;
                 }
             }
         }
+        return false;
+    }
 
-        if (!$isUserExists){
+
+    public function create($newUserData)
+    {
+
+        if ($this->checkLogin($newUserData)==false){
 
             //создание пользователя
             $data = file_get_contents('users.json');
@@ -66,8 +71,9 @@ class usersController
         $data = json_decode(json_encode($data), true);
         if(!empty($data)){
             foreach($data as $row){
-                $userData['pass'] = md5($userData['pass'] . "FBC5BB76A58C5CA4");
-                if(($row["login"] == $userData['login']) && ($row["pass"] == $userData['pass'])){
+                $password = $userData['pass'];
+                $password = md5($password . "FBC5BB76A58C5CA4");
+                if(($row["login"] == $userData['login']) && ($row["pass"] == $password)){
                     session_start();
                     $_SESSION["user_login"] = $userData['login'];
                     $response = [
@@ -78,6 +84,7 @@ class usersController
                     die();
                 }
             }
+
             $response = [
                 "status" => true,
                 "message" =>'wrong login or password!'

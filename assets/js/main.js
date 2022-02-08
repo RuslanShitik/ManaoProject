@@ -1,6 +1,7 @@
 
 $('.reg-btn').click(function (e){
     e.preventDefault();
+    $('.err').text('');
 
     let login = $('input[name="login"]').val().replace(/\s+/g, ''),
         password = $('input[name="password"]').val().replace(/\s+/g, ''),
@@ -8,11 +9,9 @@ $('.reg-btn').click(function (e){
         email = $('input[name="email"]').val().replace(/\s+/g, ''),
         userName = $('input[name="userName"]').val().replace(/\s+/g, '');
 
-    $('.err').text('');
-
-
     let mailReg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
     let passReg = /(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])/g;
+    let passSpecReg = /^[^!@#$%^&*]+$/g;
     let nameReg = /[A-Za-z]/;
 
     //проверка полей (простите)
@@ -21,27 +20,31 @@ $('.reg-btn').click(function (e){
         $('.loginErr').text('invalid login: minimum 6 characters!');
         throw '';
     }
-    else if(password.length<6){
+    if(password.length<6){
         $('.passwordErr').text('invalid password: minimum 6 characters!');
         throw '';
     }
-    else if (!passReg.test(password)){
+    if (!passReg.test(password)){
         $('.passwordErr').text('invalid password: Must be numbers and letters!');
         throw '';
     }
-    else if (password != passConf){
+    if (!passSpecReg.test(password)){
+        $('.passwordErr').text('invalid password: must not contain "!@#$%^&*"!');
+        throw '';
+    }
+    if (password != passConf){
         $('.passwordConfErr').text('password does not match');
         throw '';
     }
-    else if (!mailReg.test(email)){
+    if (!mailReg.test(email)){
         $('.emailErr').text('invalid email!');
         throw '';
     }
-    else if (userName.length < 2){
+    if (userName.length < 2){
         $('.userNameErr').text('invalid name: minimum 2 characters!');
         throw '';
     }
-    else if (!nameReg.test(userName)){
+    if (!nameReg.test(userName)){
         $('.userNameErr').text('invalid name: minimum 2 characters!');
         throw '';
     }
